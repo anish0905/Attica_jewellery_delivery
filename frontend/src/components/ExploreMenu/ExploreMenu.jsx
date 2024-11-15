@@ -1,22 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ExploreMenu.css";
 import { item_list } from "../../assets/assets";
+console.log(item_list);
 
-const ExploreMenu = () => {
+const ExploreMenu = ({ category, setCategory }) => {
+  console.log("resssss" + "" + category);
+
   return (
     <div>
       <div className="explore-menu" id="explore-menu">
-        <h1>Explore our Jwellery</h1>
+        <h1> Jewelry That Speaks to Your Style</h1>
         <p className="explore-menu-text">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id molestiae
-          atque quas veritatis asperiores neque iusto, voluptatibus illum!
-          Corrupti, minus!
+          Explore our range of jewelry that combines craftsmanship with
+          creativity. Whether you're looking for something delicate, bold, or
+          uniquely you, our collection is crafted to help you express your
+          individual style with grace and sophistication.
         </p>
         <div className="explore-menu-list">
           {item_list.map((item, index) => {
             return (
-              <div key={index} className="explore-menu-list-item">
-                <img src={item.image} alt="" srcset="" />
+              <div
+                onClick={() =>
+                  setCategory((prev) =>
+                    prev === item.name ? "All" : item.name
+                  )
+                }
+                key={index}
+                className="explore-menu-list-item"
+              >
+                <img
+                  src={item.image}
+                  alt=""
+                  className={category === item.name ? "active" : ""}
+                />
                 <p>{item.name}</p>
               </div>
             );
