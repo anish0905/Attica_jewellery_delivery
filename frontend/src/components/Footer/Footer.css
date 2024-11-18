@@ -1,0 +1,105 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Allow items to wrap for smaller screens */
+  padding: 20px;
+  margin-top: 30px;
+  gap: 20px;
+}
+
+.footer-content-left,
+.footer-content-center,
+.footer-content-right {
+  flex: 1 1 30%; /* Each section takes up equal space, with a minimum width */
+  max-width: 400px; /* Optional: Prevent sections from growing too large */
+}
+
+.footer-content-left {
+  padding-top: 20px;
+}
+
+.footer-content-left img {
+  width: 100%; /* Image will scale based on the container */
+  max-width: 300px; /* Restrict maximum size */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.footer-content-left p {
+  font-size: 0.9rem; /* Adjust font size for readability */
+  line-height: 1.5;
+}
+
+.footer-content-center h2,
+.footer-content-right h2 {
+  margin-bottom: 20px;
+}
+
+.footer-content-center ul,
+.footer-content-right ul {
+  padding: 0;
+}
+
+.footer-content-left li,
+.footer-content-center li,
+.footer-content-right li {
+  list-style: none;
+  margin-bottom: 10px;
+  font-size: 0.9rem; /* Font size consistency */
+}
+
+.hr {
+  width: 100%;
+  height: 2px;
+  margin: 12px 0;
+  background-color: black;
+}
+
+.footer-center {
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 0.8rem; /* Adjust font size for smaller screens */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767px) {
+  .footer {
+    flex-direction: column; /* Stack sections vertically */
+    align-items: center;
+  }
+
+  .footer-content-left,
+  .footer-content-center,
+  .footer-content-right {
+    text-align: center; /* Center align text for smaller screens */
+  }
+
+  .footer-content-left img {
+    width: 80%; /* Reduce image size for small screens */
+    max-width: 250px;
+  }
+
+  .footer-content-left p {
+    width: 90%; /* Text spans the container */
+    margin: 0 auto; /* Center align text */
+  }
+
+  .footer-content-center ul,
+  .footer-content-right ul {
+    text-align: center;
+  }
+
+  .hr {
+    height: 1px; /* Reduce thickness of the separator */
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-content-left p {
+    font-size: 0.8rem; /* Further reduce font size for very small screens */
+  }
+
+  .footer-center {
+    font-size: 0.7rem; /* Adjust copyright font size */
+  }
+}
