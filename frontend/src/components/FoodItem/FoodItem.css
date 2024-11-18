@@ -6,3 +6,47 @@
   transition: 0.3s;
   animation: fadeIn 1s;
 }
+
+.food-item-price {
+  color: tomato;
+  font-size: 22px;
+  font-weight: 500;
+  margin: 10px 0px;
+}
+
+.food-item-name-rating img {
+  width: 150px;
+  height: 80px;
+  border: transparent;
+}
+
+.food-item-info .add {
+  font-size: 28px;
+  color: hsl(106, 100%, 50%);
+  cursor: pointer;
+  border: 2px solid black;
+}
+
+.food-item-info .minus {
+  font-size: 28px;
+  color: hwb(0 0% 0%);
+  cursor: pointer;
+  border: 2px solid black;
+}
+
+.itemCounter {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+.itemCounter span {
+  border: 2px solid black;
+  padding: 0px 10px;
+  margin: 15px;
+}
+
+.food-item-info .itemCounter {
+  font-size: 22px;
+  color: hsl(0, 0%, 0%);
+  margin-left: 10px;
+}

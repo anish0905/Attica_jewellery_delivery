@@ -18,6 +18,7 @@ const FoodDisplay = () => {
             description={item.description}
             price={item.price}
             image={item.image}
+            rating={item.rating}
           />
         ))}
       </div>
