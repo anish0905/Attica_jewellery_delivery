@@ -1,7 +1,9 @@
 import React from "react";
 import "./Footer.css";
 import { assets } from "../../assets/assets";
-
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 const Footer = () => {
   return (
     <>
@@ -14,6 +16,13 @@ const Footer = () => {
             laudantium voluptatem perferendis repudiandae eligendi, odio quod
             distinctio blanditiis consectetur voluptate cumque!
           </p>
+          <div className="footer-social-icons">
+            <FacebookIcon style={{ fontSize: 40 }} />
+
+            <InstagramIcon style={{ fontSize: 40 }} />
+
+            <WhatsAppIcon style={{ fontSize: 40 }} />
+          </div>
         </div>
 
         <div className="footer-content-center">

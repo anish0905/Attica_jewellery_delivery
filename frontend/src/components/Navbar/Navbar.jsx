@@ -5,11 +5,13 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { assets } from "../../assets/assets";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ setShowLogin }) => {
   const [menu, setMenu] = useState("menu");
   return (
     <div className="navbar">
-      <img src={assets.logo} alt="" className="logo" />
+      <Link to="/">
+        <img src={assets.logo} alt="" className="logo" />
+      </Link>
       <ul className="navbar-menu">
         <Link
           to="/"
@@ -26,6 +28,7 @@ const Navbar = () => {
           menu
         </a>
         <a
+          href="#appDownload"
           onClick={() => setMenu("mobile-app")}
           className={menu === "mobile-app" ? "active" : ""}
         >
@@ -42,11 +45,11 @@ const Navbar = () => {
 
       <div className="navbar-right">
         <SearchIcon />
-        <div className="navbar-search-icon">
+        <Link to="/cart" className="navbar-search-icon">
           <ShoppingCartIcon />
           <div className="dot"></div>
-        </div>
-        <button> Sign In</button>
+        </Link>
+        <button onClick={() => setShowLogin(true)}> Sign In</button>
       </div>
     </div>
   );

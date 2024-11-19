@@ -3,7 +3,7 @@ import { gold_list } from "../../assets/assets";
 import { useState } from "react";
 
 export const storeContext = createContext(null);
-
+// apple
 const StoreContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
 

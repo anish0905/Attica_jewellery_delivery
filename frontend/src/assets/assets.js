@@ -4,6 +4,8 @@ import chain from "./chain.webp"
 import Gold24 from "./Gold24.png"
 import Braclet from "./Braclet.jpg";
 import rating from "./rating-stars-icon.avif"
+import appStore from "./appStore.png"
+import playStore from "./share_google_play_logo.png"
 
 export const assets ={
   logo,
@@ -11,7 +13,9 @@ export const assets ={
   chain,
   Gold24,
   Braclet,
-  rating 
+  rating ,
+  appStore,
+  playStore
   
  
 }
