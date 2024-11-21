@@ -1,17 +1,16 @@
 import React, { useContext } from "react";
 import "./Cart.css";
 import { storeContext } from "../../components/context/StoreContext";
+import CloseIcon from "@mui/icons-material/Close";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
-  const { gold_list, removeToCartItems, cartItems } = useContext(storeContext);
+  const { gold_list, removeToCartItems, cartItems, getTotalCartAmount } =
+    useContext(storeContext);
+
+  const navigate = useNavigate();
 
   // Calculate Subtotal
-  const subtotal = gold_list.reduce((acc, item) => {
-    if (cartItems[item._id]) {
-      acc += item.price * cartItems[item._id];
-    }
-    return acc;
-  }, 0);
 
   // Delivery fee is fixed for now
   const deliveryFee = 2;
@@ -40,7 +39,7 @@ const Cart = () => {
                   <p>{cartItems[item._id]}</p>
                   <p>${item.price * cartItems[item._id]}</p>
                   <button onClick={() => removeToCartItems(item._id)}>
-                    Remove
+                    <CloseIcon />
                   </button>
                 </div>
                 <hr />
@@ -59,19 +58,24 @@ const Cart = () => {
 
           <div className="cart-total-details">
             <p>Subtotal</p>
-            <p>${subtotal.toFixed(2)}</p>
+            <p>${getTotalCartAmount()}</p>
           </div>
           <hr />
           <div className="cart-total-details">
             <p>Delivery Fee</p>
-            <p>${deliveryFee.toFixed(2)}</p>
+            <p>${getTotalCartAmount() === 0 ? 0 : deliveryFee.toFixed(2)}</p>
           </div>
           <hr />
           <div className="cart-total-details">
             <b>Total</b>
-            <b>${(subtotal + deliveryFee).toFixed(2)}</b>
+            <b>
+              $
+              {getTotalCartAmount() === 0
+                ? 0
+                : (getTotalCartAmount() + deliveryFee).toFixed(2)}
+            </b>
           </div>
-          <button onClick={() => alert("Proceeding to Checkout!")}>
+          <button onClick={() => navigate("/order")}>
             PROCEED TO CHECKOUT
           </button>
         </div>
