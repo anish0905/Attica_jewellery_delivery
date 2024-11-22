@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import { connectDB } from './config/db.js';
+import goldRouter from './routes/foodRoutes.js'
 
 
 
@@ -19,6 +20,10 @@ app.use(cors());
 //db connection
 connectDB()
 
+//api endpoint
+
+app.use('/api/golds',goldRouter)
+
 app.get("/" , (req,res)=>{
   res.send("Welcome to the API");
 
@@ -30,4 +35,3 @@ app.listen(port,()=>{
 })
 
 
-//mongodb+srv://admin:<db_password>@cluster0.2nqik.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
