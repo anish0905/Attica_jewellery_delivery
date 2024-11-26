@@ -22,4 +22,42 @@ const addGold = async (req, res) => {
   }
 };
 
-export { addGold };
+const listGold = async(req,res)=>{
+
+  try{
+ const gold = await goldModel.find({});
+ res.json({ success: true, message: 'Gold' , gold})
+    
+
+  }
+  catch(error){
+    console.log(error);
+    res.status(500).json({ success: false, message: "Failed to list food" });
+
+  }
+}
+
+
+const removeGold =  async(req ,res)=>{
+  try{
+        const gold = await goldModel.findById(req.body.id);
+        fs.unlink(`uploads/${gold.image}`,()=>{ })
+
+        await goldModel.findByIdAndDelete(req.body.id);
+
+         
+
+    res.status(201).json({success : true, message: 'Gold removed successfully',gold})
+
+  }
+  catch(error){
+    res.status(500).json({success: false , message : "failed to remove product"})
+
+  }
+
+}
+
+
+
+
+export { addGold ,listGold , removeGold };

@@ -1,6 +1,6 @@
 import express from 'express';
 import multer from 'multer';
-import { addGold } from '../controllers/goldController.js';
+import { addGold , listGold , removeGold} from '../controllers/goldController.js';
 
 // Multer setup to handle file uploads
 const storage = multer.diskStorage({
@@ -16,5 +16,8 @@ const foodRouter = express.Router();
 
 // Endpoint for adding gold
 foodRouter.post('/add', upload.single("image"), addGold); // 'image' is the field name for the file upload
+
+foodRouter.get('/list',listGold)
+foodRouter.post('/remove',removeGold)
 
 export default foodRouter;
